@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ContentProvider Example</string>
+    <string name="menu_settings">Settings</string>
+    <string name="name">Enter Name</string>
+    <string  name="email">Enter Email</string>
+    <string name="contact">Enter Phone Number</string>
+    <string name="add">Add Contact</string>
+    <string name="save_data">New Contact</string>
+    <string name="show">Show Contacts</string>
+</resources>
+
