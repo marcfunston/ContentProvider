@@ -83,10 +83,8 @@ public class MainActivity extends AppCompatActivity {
                     resultView.setText(result);// finally set string builder to
                     // textview
                 } else {
-
                     // if cursor is null then set data empty
                     resultView.setText("No Contact.");
-
                 }
             }
         });
