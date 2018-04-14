@@ -19,7 +19,7 @@
 
         <provider
             android:name="com.example.marc.contentprovider.Custom_ContentProvider"
-            android:authorities="edu.ucmo.cs.contentproviderexample.Custom_ContentProvider"
+            android:authorities="com.example.marc.contentprovider.Custom_ContentProvider"
             android:exported="true"
             android:multiprocess="true" >
         </provider>

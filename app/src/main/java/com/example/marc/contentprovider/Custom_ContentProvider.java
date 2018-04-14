@@ -15,7 +15,8 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 public class Custom_ContentProvider extends ContentProvider {
-    static final String PROVIDER_NAME = "edu.ucmo.cs.contentproviderexample.Custom_ContentProvider";// Provider
+    static final String PROVIDER_NAME = "com.example.marc.contentprovider.Custom_ContentProvider";// Provider
+    //static final String PROVIDER_NAME = "edu.ucmo.cs.contentprovider.Custom_ContentProvider";// Provider
     // name
     static final String URL = "content://" + PROVIDER_NAME + "/contacts";// Provider
     // url
