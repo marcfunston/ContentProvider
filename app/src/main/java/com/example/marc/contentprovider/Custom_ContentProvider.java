@@ -27,6 +27,9 @@ public class Custom_ContentProvider extends ContentProvider {
     static final String name = "name";
     static final String email = "email";
     static final String number = "number";
+    static final String address = "address";
+    static final String birthday = "birthday";
+
 
     // Uri code
     static final int uriCode = 1;
@@ -138,10 +141,13 @@ public class Custom_ContentProvider extends ContentProvider {
     static final String DATABASE_NAME = "ContentProvider_Database";// Database
     // name
     static final String TABLE_NAME = "User_Details";// Table Name
-    static final int DATABASE_VERSION = 1;// Database Version
+    static final int DATABASE_VERSION = 2;// Database Version
     static final String CREATE_DB_TABLE = " CREATE TABLE " + TABLE_NAME
             + " (id INTEGER PRIMARY KEY AUTOINCREMENT, " + name
-            + " TEXT NOT NULL, " + email + " TEXT NOT NULL, " + number
+            + " TEXT NOT NULL, " + email
+            + " TEXT NOT NULL, " + number
+            + " TEXT NOT NULL, " + address
+            + " TEXT NOT NULL, " + birthday
             + " TEXT NOT NULL" + " );"; // Create table query
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
@@ -151,6 +157,7 @@ public class Custom_ContentProvider extends ContentProvider {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+
             db.execSQL(CREATE_DB_TABLE);// Create table
         }
 
