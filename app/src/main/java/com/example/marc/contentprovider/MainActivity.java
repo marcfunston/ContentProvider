@@ -69,15 +69,12 @@ public class MainActivity extends AppCompatActivity {
                         // Add data to string builder
                         result.append("Id - "
                                 + cursor.getString(cursor.getColumnIndex("id"))
-                                + "\nName - "
-                                + cursor.getString(cursor
-                                .getColumnIndex("name"))
+                                + "\nName - "      
+                                + cursor.getString(cursor.getColumnIndex("name"))
                                 + "\nEmail - "
-                                + cursor.getString(cursor
-                                .getColumnIndex("email"))
+                                + cursor.getString(cursor.getColumnIndex("email"))
                                 + "\nPhone - "
-                                + cursor.getString(cursor
-                                .getColumnIndex("number")) + "\n\n");
+                                + cursor.getString(cursor.getColumnIndex("number")) + "\n\n");
                         cursor.moveToNext();
                     }
                     resultView.setText(result);// finally set string builder to
