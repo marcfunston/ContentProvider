@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private static EditText name, email, number;
+    private static EditText name, email, number, address, birthday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.txtName);
         email = (EditText) findViewById(R.id.txtEmail);
         number = (EditText) findViewById(R.id.txtContact);
+        address = (EditText) findViewById(R.id.txtAddress);
+        birthday = (EditText) findViewById(R.id.txtBirthday);
+
+        this.deleteDatabase("ContentProvider_Database.db");
+
 
         findViewById(R.id.btnAdd).setOnClickListener(new OnClickListener() {
 
@@ -30,18 +35,24 @@ public class MainActivity extends AppCompatActivity {
                 String getName = name.getText().toString();
                 String getEmail = email.getText().toString();
                 String getNumber = number.getText().toString();
+                String getAddress = address.getText().toString();
+                String getBirthday = birthday.getText().toString();
 
                 // Check if all fields are not null
                 if (!getName.equals("") && getName.length() != 0
                         && !getEmail.equals("") && getEmail.length() != 0
-                        && !getNumber.equals("") && getNumber.length() != 0) {
+                        && !getNumber.equals("") && getNumber.length() != 0
+                        && !getAddress.equals("") && getAddress.length() != 0
+                        && !getBirthday.equals("") && getBirthday.length() != 0) {
 
-                    onClickAddData(getName, getEmail, getNumber);// Add data
+                    onClickAddData(getName, getEmail, getNumber, getAddress, getBirthday);// Add data
 
                     // empty all fields
                     name.setText("");
                     email.setText("");
                     number.setText("");
+                    address.setText("");
+                    birthday.setText("");
                 }
                 // else show toast
                 else
@@ -68,13 +79,18 @@ public class MainActivity extends AppCompatActivity {
                     while (!cursor.isAfterLast()) {
                         // Add data to string builder
                         result.append("Id - "
-                                + cursor.getString(cursor.getColumnIndex("id"))
-                                + "\nName - "      
-                                + cursor.getString(cursor.getColumnIndex("name"))
-                                + "\nEmail - "
-                                + cursor.getString(cursor.getColumnIndex("email"))
-                                + "\nPhone - "
-                                + cursor.getString(cursor.getColumnIndex("number")) + "\n\n");
+                                        + cursor.getString(cursor.getColumnIndex("id"))
+                                        + "\nName - "
+                                        + cursor.getString(cursor.getColumnIndex("name"))
+                                        + "\nEmail - "
+                                        + cursor.getString(cursor.getColumnIndex("email"))
+                                        + "\nPhone - "
+                                        + cursor.getString(cursor.getColumnIndex("number"))
+                                        + "\nAddress - "
+                                        + cursor.getString(cursor.getColumnIndex("address"))
+                                        + "\nBirthday - "
+                                        + cursor.getString(cursor.getColumnIndex("birthday"))
+                                        + "\n\n");
                         cursor.moveToNext();
                     }
                     resultView.setText(result);// finally set string builder to
@@ -88,11 +104,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Add data method
-    private void onClickAddData(String name, String email, String number) {
+    private void onClickAddData(String name, String email, String number, String address, String birthday) {
         ContentValues values = new ContentValues();// Content values to add data
         values.put(Custom_ContentProvider.name, name);
         values.put(Custom_ContentProvider.email, email);
         values.put(Custom_ContentProvider.number, number);
+        values.put(Custom_ContentProvider.address, address);
+        values.put(Custom_ContentProvider.birthday, birthday);
         Uri uri = getContentResolver().insert(
                 Custom_ContentProvider.CONTENT_URI, values);// Insert data to
         // content provider
