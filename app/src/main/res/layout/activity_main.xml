@@ -50,6 +50,24 @@
             android:inputType="number"
             android:padding="10dp" />
 
+        <EditText
+            android:id="@+id/txtAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/address"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/txtBirthday"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/birthday"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="fill_parent"
